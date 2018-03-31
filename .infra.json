@@ -1,6 +1,6 @@
 {
 	"pub":["sitekey"],
-	"off":false,
+	"off":true,
 	"conf":"akiyatkin\\recaptcha\\Recaptcha",
 	"secret":"...secret...",
 	"sitekey":"...sitekey...",
