@@ -1,9 +1,9 @@
 <?php
-
+namespace akiyatkin\recaptcha;
 use infrajs\rest\Rest;
 use infrajs\ans\Ans;
 use infrajs\config\Config;
-use infrajs\load\Load;
+use infrajs\template\Template;
 
 
 return Rest::get( function () {
@@ -11,7 +11,6 @@ return Rest::get( function () {
 	$html = Rest::parse('-recaptcha/layout.tpl', $conf);
 	return Ans::html($html);
 }, 'submit', function () {
-	
 	$ans = array();
 	$r = Recaptcha::check($ans);//$ans передаётся для дебага
 	if(!$r) return Ans::err($ans,'Ошибка, не пройдена проверка антибот.');

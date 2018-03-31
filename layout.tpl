@@ -10,7 +10,7 @@
   </head>
   <body>
     <form id='demo-form' action="/-recaptcha/submit" method="POST">
-      <button class="g-recaptcha" data-sitekey="{~conf.recaptcha.sitekey}" data-callback='onSubmit'>Submit</button>
+      <button class="g-recaptcha" data-sitekey="{sitekey}" data-callback='onSubmit'>Submit</button>
     </form>
   </body>
 </html>

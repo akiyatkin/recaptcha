@@ -1,10 +1,12 @@
 <?php
 namespace akiyatkin\recaptcha;
+use infrajs\load\Load;
 
 class Recaptcha {
 	public static $conf = array();
 	public static function check(&$ans = array()) {
 		$conf = static::$conf;
+		$ans['post'] = $_POST;
 		if (!empty($conf['off'])) return true;
 		if (empty($conf['secret'])) return false;
 		if (empty($_POST['g-recaptcha-response'])) return false;
@@ -27,7 +29,7 @@ class Recaptcha {
 		$result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context); //отправляем запрос
 		$result = Load::json_decode($result, true);
 		$ans['reCAPTCHA'] = $result;
-		$ans['post'] = $_POST;
+		
 		if (!$result || !$result['success']) {
 			return false;
 		}

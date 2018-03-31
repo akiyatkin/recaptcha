@@ -3,6 +3,7 @@
 	"require":{
 		"infrajs/config":"~1",
 		"infrajs/ans":"~1",
+		"infrajs/load":"~1",
 		"akiyatkin/boo":"~1"
 	},
 	"autoload": {
