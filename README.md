@@ -25,8 +25,11 @@ $r = Recaptcha.check();
 ```json
 {
 	"recaptcha":{
-		"sitekey":"6LfWZTQUAAAAACvx6Wkf0xw5yFh-cOyQEQ_BwVfF",
-		"secret":"6LfWZTQUAAAAAFlua_PuIfoHXmx12ZpzAz53sk4t"
+		"off":false
+		"sitekey":"...sitekey...",
+		"secret":"...secret..."
 	}
 }
 ```
+
+https://www.google.com/recaptcha
