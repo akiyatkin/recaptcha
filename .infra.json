@@ -1,0 +1,7 @@
+{
+	"off":false,
+	"conf":"akiyatkin\\recaptcha\\Recaptcha",
+	"secret":"6LfWZTQUAAAAAFlua_PuIfoHXmx12ZpzAz53sk4t",
+	"sitekey":"6LfWZTQUAAAAACvx6Wkf0xw5yFh-cOyQEQ_BwVfF",
+	"js":"js.php"
+}
