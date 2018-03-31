@@ -2,9 +2,11 @@
 namespace akiyatkin\recaptcha;
 use infrajs\rest\Rest;
 use infrajs\ans\Ans;
+use infrajs\access\Access;
 use infrajs\config\Config;
 use infrajs\template\Template;
 
+Access::test(true);
 
 return Rest::get( function () {
 	$conf = Config::get('recaptcha');
