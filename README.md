@@ -25,7 +25,7 @@ $r = Recaptcha.check();
 ```json
 {
 	"recaptcha":{
-		"off":false
+		"off":false,
 		"sitekey":"...sitekey...",
 		"secret":"...secret..."
 	}
