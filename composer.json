@@ -4,5 +4,8 @@
 		"infrajs/config":"~1",
 		"infrajs/ans":"~1",
 		"akiyatkin/boo":"~1"
+	},
+	"autoload": {
+		"psr-4": { "akiyatkin\\recaptcha\\": "" }
 	}
 }
