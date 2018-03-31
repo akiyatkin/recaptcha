@@ -6,7 +6,7 @@ use infrajs\access\Access;
 use infrajs\config\Config;
 use infrajs\template\Template;
 
-Access::test(true);
+Access::debug(true);
 
 return Rest::get( function () {
 	$conf = Config::get('recaptcha');
