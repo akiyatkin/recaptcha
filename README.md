@@ -8,13 +8,37 @@
 
 # Использование
 
-Кнопка в форме
+## Невидимая проверка на кнопке отправить
+Справа снизу плавает иконка Google
 ```html
-<button class="g-recaptcha" data-sitekey="{~conf.recaptcha.sitekey}" data-callback='onSubmit'>Submit</button>
-
+<button id="recaptcha" class="g-recaptcha" data-sitekey="{~conf.recaptcha.sitekey}" data-callback="onSubmit">Submit</button>
+<script>
+	domready(function () {
+		Event.one('reCAPTCHA', function (){
+			grecaptcha.render('recaptcha');
+		});
+	});
+	function onSubmit(token) {
+		var div = $('form').submit();
+	}
+</script>
+```
+## Галочка в форме
+```html
+<form>
+	...
+	<div id="recaptcha" class="g-recaptcha space"  data-sitekey="{~conf.recaptcha.sitekey}"></div>
+</form>
+<script>
+	domready(function () {
+		Event.one('reCAPTCHA', function (){
+			grecaptcha.render('recaptcha');
+		});
+	});
+</script>
 ```
 
-Проверка на сервере
+## Проверка на сервере
 ```php
 use akiyatkin\recaptcha\Recaptcha;
 
