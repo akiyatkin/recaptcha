@@ -10,7 +10,7 @@ $conf = Config::get('recaptcha');
 	return file_get_contents('https://www.google.com/recaptcha/api.js?onload=grecaptchaOnload&render=explicit&hl=ru');
 }, [], ['akiyatkin\boo\Cache','getDurationTime'], array('last friday'));*/
 $js = 'window.grecaptchaOnload=function(){ Event.fire("reCAPTCHA") };';
-$js .= 'setTimeout(function () { '.file_get_contents('https://www.google.com/recaptcha/api.js?onload=grecaptchaOnload&render=explicit&hl=ru').'},10000)';
+$js .= 'setTimeout(function () { '.file_get_contents('https://www.google.com/recaptcha/api.js?onload=grecaptchaOnload&render=explicit&hl=ru').'},6000)';
 
 
 return Ans::js($js);
