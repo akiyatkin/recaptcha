@@ -1,8 +1,8 @@
 {
 	"pub":["sitekey"],
 	"off":true,
-	"conf":"akiyatkin\\recaptcha\\Recaptcha",
+	"conf":"akiyatkin\\recaptcha\\reCAPTCHA",
 	"secret":"...secret...",
 	"sitekey":"...sitekey...",
-	"js":"js.php"
+	"js":"infra.js"
 }

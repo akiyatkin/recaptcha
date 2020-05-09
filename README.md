@@ -40,9 +40,9 @@
 
 ## Проверка на сервере
 ```php
-use akiyatkin\recaptcha\Recaptcha;
+use akiyatkin\recaptcha\reCAPTCHA;
 
-$r = Recaptcha.check();
+$r = reCAPTCHA.check();
 ```
 
 Конфиг в data/.infra.json

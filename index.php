@@ -14,7 +14,7 @@ return Rest::get( function () {
 	return Ans::html($html);
 }, 'submit', function () {
 	$ans = array();
-	$r = Recaptcha::check($ans);//$ans передаётся для дебага
+	$r = reCAPTCHA::check($ans);//$ans передаётся для дебага
 	if(!$r) return Ans::err($ans,'Ошибка, не пройдена проверка антибот.');
 	else return Ans::ret($ans, 'Проверка пройдена.');
 });

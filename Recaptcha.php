@@ -2,18 +2,18 @@
 namespace akiyatkin\recaptcha;
 use infrajs\load\Load;
 
-class Recaptcha {
+class reCAPTCHA {
 	public static $conf = array();
 	public static function check(&$ans = array()) {
 		$conf = static::$conf;
 		$ans['post'] = $_POST;
 		if (!empty($conf['off'])) return true;
 		if (empty($conf['secret'])) return false;
-		if (empty($_POST['g-recaptcha-response'])) return false;
+		if (empty($_POST['g-recaptcha-token'])) return false;
 		
 		$paramsArray = array(
 			'secret' => $conf['secret'], 
-			'response' => $_POST['g-recaptcha-response'],
+			'response' => $_POST['g-recaptcha-token'],
 			'remoteip' => $_SERVER['REMOTE_ADDR']
 		);
 		$vars = http_build_query($paramsArray); // преобразуем массив в URL-кодированную строку
