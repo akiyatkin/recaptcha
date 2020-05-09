@@ -2,7 +2,6 @@
 namespace infrajs\contacts;
 use infrajs\ans\Ans;
 use infrajs\config\Config;
-use akiyatkin\boo\Cache;
 
 $conf = Config::get('recaptcha');
 
