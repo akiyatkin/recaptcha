@@ -4,5 +4,5 @@
 	"conf":"akiyatkin\\recaptcha\\reCAPTCHA",
 	"secret":"...secret...",
 	"sitekey":"...sitekey...",
-	"js":"infra.js"
+	"js":[]
 }
