@@ -3,6 +3,5 @@
 	"off":true,
 	"conf":"akiyatkin\\recaptcha\\reCAPTCHA",
 	"secret":"...secret...",
-	"sitekey":"...sitekey...",
-	"js":[]
+	"sitekey":"...sitekey..."
 }

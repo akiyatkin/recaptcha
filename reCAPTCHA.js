@@ -1,9 +1,8 @@
 import { Fire } from '/vendor/akiyatkin/load/Fire.js'
 import { CDN } from '/vendor/akiyatkin/load/CDN.js'
 import { Config } from '/vendor/infrajs/config/Config.js'
-import { Controller } from '/vendor/infrajs/controller/src/Controller.js'	
 import { Layer } from '/vendor/infrajs/controller/src/Layer.js'
-
+import { Submit } from '/vendor/infrajs/layer-onsubmit/Submit.js'
 /*
 Если события не нужны, то и не надо их использовать
 У событий
@@ -20,21 +19,18 @@ let reCAPTCHA = {
     on: (...params) => Fire.on(reCAPTCHA, ...params),
     hand: (...params) => Fire.hand(reCAPTCHA, ...params),
     wait: (...params) => Fire.wait(reCAPTCHA, ...params),
-    init: async (div, id, counter) => {
+    init: async (context) => {
         reCAPTCHA.activate()
-		div = document.getElementById(div)
+		let div = context.div
         let tag = tag => div.getElementsByTagName(tag)[0]
         let form = tag('form')
         let cls = cls => form.getElementsByClassName(cls)[0]
-		let iscontext = () => {
-			if (!Controller.ids[id]) return true
-			return Controller.ids[id].counter == counter
-		}
-		Layer.hand('submit', async (layer) => {
-            if (layer != Controller.ids[id]) return
-			if (!iscontext()) return
+		
+		Submit.hand('start', async (f) => {
+            if (f != form) return
+            if (!context.is()) return
             let token = await reCAPTCHA.execute('contacts')
-            if (!iscontext()) return
+            if (!context.is()) return
             let name = "g-recaptcha-token";
             let inp = cls(name)
             if (!inp) {
