@@ -19,19 +19,16 @@ let reCAPTCHA = {
     on: (...params) => Fire.on(reCAPTCHA, ...params),
     hand: (...params) => Fire.hand(reCAPTCHA, ...params),
     wait: (...params) => Fire.wait(reCAPTCHA, ...params),
-    init: async (context) => {
+    init: async (context, name) => {
         reCAPTCHA.activate()
-		let div = context.div
+		let div = context.parentElement
         let tag = tag => div.getElementsByTagName(tag)[0]
         let form = tag('form')
         let cls = cls => form.getElementsByClassName(cls)[0]
 		
-		Submit.hand('start', async (f) => {
+		Submit.hand('form', async (f) => {
             if (f != form) return
-            if (!context.is()) return
-            let token = await reCAPTCHA.execute('contacts')
-            if (!context.is()) return
-            let name = "g-recaptcha-token";
+            let name = "g-recaptcha-token"
             let inp = cls(name)
             if (!inp) {
                 inp = document.createElement("input")
@@ -39,7 +36,7 @@ let reCAPTCHA = {
                 inp.class = inp.name = name 
                 form.appendChild(inp)
             }
-            inp.value = token
+            inp.value = await reCAPTCHA.execute(name)
 		})
     },
     execute: async (action) => {
