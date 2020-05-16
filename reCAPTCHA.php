@@ -9,11 +9,11 @@ class reCAPTCHA {
 		$ans['post'] = $_POST;
 		if (!empty($conf['off'])) return true;
 		if (empty($conf['secret'])) return false;
-		if (empty($_POST['g-recaptcha-token'])) return false;
+		if (empty($_POST['g-recaptcha-response'])) return false;
 		
 		$paramsArray = array(
 			'secret' => $conf['secret'], 
-			'response' => $_POST['g-recaptcha-token'],
+			'response' => $_POST['g-recaptcha-response'],
 			'remoteip' => $_SERVER['REMOTE_ADDR']
 		);
 		$vars = http_build_query($paramsArray); // преобразуем массив в URL-кодированную строку
