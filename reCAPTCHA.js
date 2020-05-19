@@ -21,7 +21,7 @@ reCAPTCHA.hand('apply', async form => {
         inp.class = inp.name = name
         form.appendChild(inp)
     }
-    inp.value = await reCAPTCHA.tikon('execute', form.dataset.recaptcha)
+    inp.value = await reCAPTCHA.ok('execute', form.dataset.recaptcha)
 })
 
 reCAPTCHA.hand('init', () => {
