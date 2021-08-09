@@ -8,14 +8,15 @@ class reCAPTCHA {
 		$conf = static::$conf;
 		$ans['post'] = $_POST;
 		if (!empty($conf['off'])) return true;
-		if (empty($conf['secret'])) return false;
-		if (empty($_POST['g-recaptcha-response'])) return false;
-		
+		if (empty($conf['secret'])) throw new \Exception('Не настроена reCAPTCHA secret');
+		if (empty($_POST['g-recaptcha-response'])) throw new \Exception('Не настроена reCAPTCHA g-recaptcha-response');
+
 		$paramsArray = array(
 			'secret' => $conf['secret'], 
 			'response' => $_POST['g-recaptcha-response'],
 			'remoteip' => $_SERVER['REMOTE_ADDR']
 		);
+
 		$vars = http_build_query($paramsArray); // преобразуем массив в URL-кодированную строку
 		$options = array( // создаем параметры контекста
 			'http' => array(  
@@ -29,7 +30,6 @@ class reCAPTCHA {
 		$result = file_get_contents('https://www.google.com/recaptcha/api/siteverify', false, $context); //отправляем запрос
 		$result = Load::json_decode($result, true);
 		$ans['reCAPTCHA'] = $result;
-		
 		if (!$result || !$result['success']) {
 			return false;
 		}
